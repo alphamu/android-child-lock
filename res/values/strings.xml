@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ParentalLock</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+        <!-- FIC ADDITIONS -->
+    <string name="Database_onCreate">"
+        CREATE TABLE summaryapps (	_id INTEGER PRIMARY KEY AUTOINCREMENT, \
+							apppackage TEXT, \
+							appname TEXT, \
+							starttime LONG, \
+							duration LONG );
+							
+		CREATE TABLE monitor (	_id INTEGER PRIMARY KEY AUTOINCREMENT, \
+							url TEXT, \
+							idHash LONG, \
+							entryType INTEGER, \
+							idUser	INTEGER, \
+							idDevice INTEGER, \
+							whendone LONG );
+			
+			
+			CREATE TABLE summarymonitor (_id INTEGER PRIMARY KEY AUTOINCREMENT, \
+							url TEXT, \
+							idHash, \
+							starttime LONG, \
+							duration LONG );	
+			
+			CREATE TABLE UserInfo (_id INTEGER PRIMARY KEY AUTOINCREMENT,\
+                idUser INTEGER,\
+                Name TEXT,\
+                Password TEXT, \
+                BirthDate TEXT,\
+                Category INTEGER,\
+                CurrentUser INTEGER,\
+                EMail TEXT);
+			
+			CREATE TABLE Device (_id INTEGER PRIMARY KEY AUTOINCREMENT,\
+                idDevice INTEGER,\
+                DeviceType INTEGER,\
+                DeviceName TEXT,\
+                SWVersion INTEGER,\
+                Features INTEGER,\
+                RegistrationId TEXT,\
+                DUID TEXT);
+																						
+							"</string>
+	    
+	<string name="Database_onUpgrade">"
+	    DROP TABLE IF EXISTS summaryapp
+		DROP TABLE IF EXISTS monitor
+		DROP TABLE IF EXISTS summarymonitor
+		DROP TABLE IF EXISTS Device
+		DROP TABLE IF EXISTS UserInfo
+		"</string>
+		
+	<string name="SummaryAppsRecreate">"
+	   	DROP TABLE IF EXISTS summaryapp
+	    CREATE TABLE summaryapps (	_id INTEGER PRIMARY KEY AUTOINCREMENT, \
+							apppackage TEXT, \
+							appname TEXT, \
+							starttime LONG, \
+							duration LONG );
+							"</string>
+							
+	<string name="MonitorRecreate">"
+		DROP TABLE IF EXISTS monitor
+		CREATE TABLE monitor (	_id INTEGER PRIMARY KEY AUTOINCREMENT, \
+							url TEXT, \
+							idHash LONG, \
+							entryType INTEGER, \
+							idUser	INTEGER, \
+							idDevice INTEGER, \
+							whendone LONG );									
+							"</string>
+		
+	<string name="SummaryMonitorRecreate">"
+		DROP TABLE IF EXISTS summarymonitor
+		CREATE TABLE summarymonitor (_id INTEGER PRIMARY KEY AUTOINCREMENT, \
+							url TEXT, \
+							idHash, \
+							starttime LONG, \
+							duration LONG );
+							"</string>	
+							
+	<string name="UserInfoRecreate">"
+		DROP TABLE IF EXISTS UserInfo
+		CREATE TABLE UserInfo (_id INTEGER PRIMARY KEY AUTOINCREMENT,\
+                idUser INTEGER,\
+                Name TEXT,\
+                Password TEXT, \
+                BirthDate TEXT,\
+                Category INTEGER,\
+                CurrentUser INTEGER,\
+                EMail TEXT);
+				"</string>	
+
+</resources>
